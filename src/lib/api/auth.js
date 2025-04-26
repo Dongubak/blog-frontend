@@ -3,7 +3,7 @@ import client from "./client";
 const apiURL = process.env.REACT_APP_API_URL;
 // 로그인
 export const login = ({ username, password }) =>
-  client.post(`/api/auths/login`, { username, password });
+  client.post(`${apiURL}/api/auths/login`, { username, password });
 
 // 회원가입
 export const register = ({ username, password }) =>
