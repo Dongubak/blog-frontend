@@ -1,4 +1,4 @@
-import client from './client';
+import client from "./client";
 
 // 음식 검색 API 호출
 export const searchFood = async (keyword) => {

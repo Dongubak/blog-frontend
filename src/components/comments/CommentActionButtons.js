@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import palette from '../../lib/styles/palette';
-import AskRemoveModal from './AskRemoveModal';
+import React, { useState } from "react";
+import styled from "styled-components";
+import palette from "../../lib/styles/palette";
+import AskRemoveModal from "./AskRemoveModal";
 
 const CommentActionButtonsBlock = styled.div`
   display: flex;

@@ -1,15 +1,12 @@
-import { createAction, handleActions } from 'redux-actions';
+import { createAction, handleActions } from "redux-actions";
 import createRequestSaga, {
   createRequestActionTypes,
-} from '../lib/createRequestSaga';
-import * as mealAPI from '../lib/api/meal';
-import { takeLatest, call, put } from 'redux-saga/effects';
+} from "../lib/createRequestSaga";
+import * as mealAPI from "../lib/api/meal";
+import { takeLatest, call, put } from "redux-saga/effects";
 
-const [
-  GET_MEAL,
-  GET_MEAL_SUCCESS,
-  GET_MEAL_FAILURE,
-] = createRequestActionTypes('meal/GET_MEAL');
+const [GET_MEAL, GET_MEAL_SUCCESS, GET_MEAL_FAILURE] =
+  createRequestActionTypes("meal/GET_MEAL");
 
 export const getMeal = createAction(GET_MEAL, (keyword) => keyword);
 
@@ -22,7 +19,7 @@ export function* MealSaga() {
 const initialState = {
   data: [],
   error: false,
-  errorMSG: '',
+  errorMSG: "",
 };
 
 const meal = handleActions(

@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import Responsive from '../common/Responsive';
+import React from "react";
+import styled from "styled-components";
+import Responsive from "../common/Responsive";
 
 // Wrapper 스타일
 const Wrapper = styled(Responsive)`
@@ -60,7 +60,9 @@ const Button = styled.button`
   border: none;
   border-radius: 4px; /* 둥근 모서리 */
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
 
   &:hover {
     background-color: #0056b3; /* 더 진한 파란색 */
@@ -73,13 +75,12 @@ const Button = styled.button`
 `;
 
 const NameBox = styled.div`
-   padding: 0 0.5rem;
+  padding: 0 0.5rem;
 
-   &:hover {
+  &:hover {
     color: red;
-   }
-`
-
+  }
+`;
 
 const Wrapper2 = styled.div`
   display: flex;
@@ -91,7 +92,13 @@ const Wrapper2 = styled.div`
   gap: 0.5rem; /* 아이템 간의 간격 */
 `;
 
-const ArrangeMeetingInputForm = ({ keyword, onChange = () => {}, onSubmit = () => {}, cart, onDelete }) => {
+const ArrangeMeetingInputForm = ({
+  keyword,
+  onChange = () => {},
+  onSubmit = () => {},
+  cart,
+  onDelete,
+}) => {
   return (
     <Wrapper>
       <Title>사용자 검색</Title>
@@ -104,13 +111,20 @@ const ArrangeMeetingInputForm = ({ keyword, onChange = () => {}, onSubmit = () =
         />
         <Button type="submit">검색</Button>
       </Form>
-      
-      {
-        cart.length !== 0 ? <Wrapper2>{
-          cart.map((userData) => (<NameBox onClick={() => {
-            onDelete(userData.username);
-         }}>{userData.username}</NameBox>))}</Wrapper2> : null
-      }
+
+      {cart.length !== 0 ? (
+        <Wrapper2>
+          {cart.map((userData) => (
+            <NameBox
+              onClick={() => {
+                onDelete(userData.username);
+              }}
+            >
+              {userData.username}
+            </NameBox>
+          ))}
+        </Wrapper2>
+      ) : null}
     </Wrapper>
   );
 };

@@ -1,26 +1,26 @@
-import React from 'react';
-import styled from 'styled-components';
-import { MdSaveAlt } from 'react-icons/md';
-import { FaSearch } from 'react-icons/fa';
-import Responsive from '../components/common/Responsive';
+import React from "react";
+import styled from "styled-components";
+import { MdSaveAlt } from "react-icons/md";
+import { FaSearch } from "react-icons/fa";
+import Responsive from "../components/common/Responsive";
 
 const SearchForm = styled.form`
   display: flex;
   align-items: center;
-  
+
   /* width: 100%; */
   @media (min-width: 1024px) {
-   width:100%;
-    }
+    width: 100%;
+  }
   @media (max-width: 1024px) {
-   width:100%;
-    }
-    @media (max-width: 768px) {
-      width:100%;
-    }
-    @media (max-width: 578px) {
-      min-width: 220px;
-    }
+    width: 100%;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  @media (max-width: 578px) {
+    min-width: 220px;
+  }
   max-width: 100%;
   margin: 0 auto;
   padding: 0.2rem 0.3rem;
@@ -38,21 +38,21 @@ const SearchInput = styled.input`
   font-weight: 400;
   font-style: normal;
   @media (min-width: 1024px) {
-   width:100%;
-    }
+    width: 100%;
+  }
   @media (max-width: 1024px) {
-   width:100%;
-    }
-    @media (max-width: 768px) {
-      width:100%;
-    }
-    @media (max-width: 578px) {
-      min-width: 100px;
-    }
+    width: 100%;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  @media (max-width: 578px) {
+    min-width: 100px;
+  }
   border-radius: 2rem;
   outline: none;
   background-color: transparent;
-   font-size: 1.1rem;
+  font-size: 1.1rem;
   &::placeholder {
     color: #757575;
   }
@@ -63,7 +63,6 @@ const ButtonGroup = styled.div`
 `;
 
 const SearchButton = styled.button`
-  
   display: flex;
   align-items: center;
   padding: 0.5rem;
@@ -84,13 +83,13 @@ const SearchButton = styled.button`
   }
 
   span {
-   min-width: 2rem;
+    min-width: 2rem;
   }
 `;
 
 const Space = styled.div`
-   margin-right: 1rem;
-`
+  margin-right: 1rem;
+`;
 
 const SaveButton = styled.button`
   display: flex;
@@ -112,40 +111,37 @@ const SaveButton = styled.button`
     font-size: 1.5rem;
   }
   span {
-   min-width: 2rem;
+    min-width: 2rem;
   }
 `;
 
-const GoogleSearchForm = (
-   {
-      value, 
-      onChange, 
-      placeholder, 
-      onKeyPress,
-      onSearch,
-      onSave
-   }
-) => {
+const GoogleSearchForm = ({
+  value,
+  onChange,
+  placeholder,
+  onKeyPress,
+  onSearch,
+  onSave,
+}) => {
   return (
-      <SearchForm>
-         <SearchInput 
-         type="text" 
-         placeholder={placeholder} 
-         value={value}
-         onChange={onChange}
-         onKeyPress={onKeyPress}
-         />
-         <ButtonGroup>
-         <SearchButton onClick={onSearch}>
-            <FaSearch />
-         </SearchButton>
-         <Space></Space>
-         <SaveButton onClick={onSave}>
-            <MdSaveAlt />
-         </SaveButton>
-         </ButtonGroup>
-      </SearchForm>
-    
+    <SearchForm>
+      <SearchInput
+        type="text"
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        onKeyPress={onKeyPress}
+      />
+      <ButtonGroup>
+        <SearchButton onClick={onSearch}>
+          <FaSearch />
+        </SearchButton>
+        <Space></Space>
+        <SaveButton onClick={onSave}>
+          <MdSaveAlt />
+        </SaveButton>
+      </ButtonGroup>
+    </SearchForm>
   );
 };
 

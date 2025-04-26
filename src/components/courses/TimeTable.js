@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import Responsive from '../common/Responsive';
+import React, { useState } from "react";
+import styled from "styled-components";
+import Responsive from "../common/Responsive";
 
 const TimetableWrapper = styled(Responsive)`
   display: grid;
@@ -16,8 +16,8 @@ const TimetableWrapper = styled(Responsive)`
 `;
 
 const Cell = styled.div`
-  color: ${({ isHovered }) => (isHovered ? 'pink' : 'black')};
-  font-weight: ${({ isHovered }) => (isHovered ? 'bold' : 'normal')};
+  color: ${({ isHovered }) => (isHovered ? "pink" : "black")};
+  font-weight: ${({ isHovered }) => (isHovered ? "bold" : "normal")};
   padding: 0.25rem; /* 패딩을 줄여서 텍스트가 더 많이 차지할 수 있도록 */
   text-align: center;
   border: 1px solid #ececec;
@@ -42,8 +42,6 @@ const TimeCell = styled(Cell)`
   cursor: default; /* 시간 셀에는 커서를 포인터로 변경하지 않음 */
 `;
 
-
-
 const Timetable = ({ schedule, onDeleteCourseFromCart }) => {
   /// 내부 디자인에 관한 로직이므로 상태관리를 한다고 해서 container에 분리하지 않았음
   console.log(schedule);
@@ -58,9 +56,9 @@ const Timetable = ({ schedule, onDeleteCourseFromCart }) => {
   };
 
   // 요일과 교시를 축약된 형태로 정의
-  const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const daysShort = ['M', 'T', 'W', 'T', 'F', 'S']; // 약자로 표시
-  const periods = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const daysShort = ["M", "T", "W", "T", "F", "S"]; // 약자로 표시
+  const periods = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
   return (
     <TimetableWrapper>
@@ -72,17 +70,25 @@ const Timetable = ({ schedule, onDeleteCourseFromCart }) => {
       {periods.map((period, periodIndex) => (
         <React.Fragment key={period}>
           <TimeCell>{period}</TimeCell>
-          {days.map(day => (
+          {days.map((day) => (
             <Cell
               key={`${day}-${periodIndex}`}
-              isHovered={schedule[day] && schedule[day][periodIndex] === hoveredCourse}
-              onMouseEnter={(e) => e.target.textContent && handleMouseEnter(schedule[day] && schedule[day][periodIndex])}
+              isHovered={
+                schedule[day] && schedule[day][periodIndex] === hoveredCourse
+              }
+              onMouseEnter={(e) =>
+                e.target.textContent &&
+                handleMouseEnter(schedule[day] && schedule[day][periodIndex])
+              }
               onMouseLeave={handleMouseLeave}
               onClick={(e) => {
-                e.target.textContent && onDeleteCourseFromCart(schedule[day][periodIndex])
+                e.target.textContent &&
+                  onDeleteCourseFromCart(schedule[day][periodIndex]);
               }}
             >
-              {schedule[day] && schedule[day][periodIndex] ? schedule[day][periodIndex] : 'O'}
+              {schedule[day] && schedule[day][periodIndex]
+                ? schedule[day][periodIndex]
+                : "O"}
             </Cell>
           ))}
         </React.Fragment>

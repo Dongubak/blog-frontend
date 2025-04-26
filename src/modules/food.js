@@ -1,15 +1,12 @@
-import { createAction, handleActions } from 'redux-actions';
+import { createAction, handleActions } from "redux-actions";
 import createRequestSaga, {
   createRequestActionTypes,
-} from '../lib/createRequestSaga';
-import * as foodAPI from '../lib/api/food';
-import { takeLatest, call, put } from 'redux-saga/effects';
+} from "../lib/createRequestSaga";
+import * as foodAPI from "../lib/api/food";
+import { takeLatest, call, put } from "redux-saga/effects";
 
-const [
-  SEARCH_FOOD,
-  SEARCH_FOOD_SUCCESS,
-  SEARCH_FOOD_FAILURE,
-] = createRequestActionTypes('food/SEARCH_FOOD');
+const [SEARCH_FOOD, SEARCH_FOOD_SUCCESS, SEARCH_FOOD_FAILURE] =
+  createRequestActionTypes("food/SEARCH_FOOD");
 
 export const searchFood = createAction(SEARCH_FOOD, (keyword) => keyword);
 
@@ -22,7 +19,7 @@ export function* FoodSaga() {
 const initialState = {
   data: [],
   error: false,
-  errorMSG: '',
+  errorMSG: "",
 };
 
 const food = handleActions(
