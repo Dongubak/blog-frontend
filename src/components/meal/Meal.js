@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Responsive from "../common/Responsive";
+import React from 'react';
+import styled from 'styled-components';
+import Responsive from '../common/Responsive';
 
 const Wrapper = styled(Responsive)`
   padding: 1rem;
@@ -53,15 +53,15 @@ const Meal = ({ data, loading }) => {
         <tbody>
           <tr>
             <Td>아침</Td>
-            <Td>{menu.아침.join(", ")}</Td>
+            <Td>{menu.아침.join(', ')}</Td>
           </tr>
           <tr>
             <Td>점심</Td>
-            <Td>{menu.점심.join(", ")}</Td>
+            <Td>{menu.점심.join(', ')}</Td>
           </tr>
           <tr>
             <Td>저녁</Td>
-            <Td>{menu.저녁.join(", ")}</Td>
+            <Td>{menu.저녁.join(', ')}</Td>
           </tr>
         </tbody>
       </Table>
@@ -74,14 +74,14 @@ const Meal = ({ data, loading }) => {
           </tr>
         </thead>
         <tbody>
-          {Object.entries(time).map(([type, schedules]) =>
+          {Object.entries(time).map(([type, schedules]) => (
             Object.entries(schedules).map(([key, value]) => (
               <tr key={`${type}-${key}`}>
                 <Td>{`${type} (${key})`}</Td>
                 <Td>{value}</Td>
               </tr>
-            )),
-          )}
+            ))
+          ))}
         </tbody>
       </Table>
     </Wrapper>

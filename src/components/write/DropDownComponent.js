@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 const DropdownWrapper = styled.div`
   position: relative;
   width: 150px;
   margin-bottom: 20px;
-  font-family: "Noto Sans", "Roboto", sans-serif; // 기본 글꼴 설정
+  font-family: 'Noto Sans', 'Roboto', sans-serif; // 기본 글꼴 설정
 `;
 
 const DropdownHeader = styled.div`
@@ -52,17 +52,17 @@ const DropdownListItem = styled.li`
 `;
 
 const Arrow = styled.span`
-  transform: ${({ isOpen }) => (isOpen ? "rotate(180deg)" : "rotate(0deg)")};
+  transform: ${({ isOpen }) => (isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
   transition: transform 0.2s ease;
 `;
 
 const Dropdown = ({ options, selected, onSelectedChange, prevSubject }) => {
   const notice = {
-    community: "커뮤니티",
-    knowledge: "지식",
-    qna: "질문",
-    announcement: "공지",
-  };
+    community: '커뮤니티',
+    knowledge: '지식',
+    qna: '질문',
+    announcement: '공지',
+  }
   const [isOpen, setIsOpen] = useState(false);
 
   const handleDropdownToggle = () => {
@@ -74,14 +74,13 @@ const Dropdown = ({ options, selected, onSelectedChange, prevSubject }) => {
     setIsOpen(false);
   };
 
+
   return (
     <DropdownWrapper>
       <DropdownHeader onClick={handleDropdownToggle}>
-        {selected
-          ? selected.label /// 주제 선택 필드 조건
-          : prevSubject
-            ? notice[prevSubject]
-            : "주제 선택"}
+        {selected ? selected.label : ( /// 주제 선택 필드 조건
+          prevSubject ? notice[prevSubject] : '주제 선택'
+        )}
         <Arrow isOpen={isOpen}>▼</Arrow>
       </DropdownHeader>
       {isOpen && (
@@ -104,20 +103,21 @@ const DropDownComponent = ({ onChangeField, subject }) => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const options = [
-    { label: "커뮤니티", value: "community" },
-    { label: "지식", value: "knowledge" },
-    { label: "질문", value: "qna" },
-    { label: "공지", value: "announcement" },
+    { label: '커뮤니티', value: 'community' },
+    { label: '지식', value: 'knowledge' },
+    { label: '질문', value: 'qna' },
+    { label: '공지', value: 'announcement' },
   ];
+
 
   const handleSelectedChange = (option) => {
     setSelectedOption(option);
-    onChangeField({ key: "subject", value: option.value });
+    onChangeField({ key: 'subject', value: option.value });
   };
 
   return (
     <div>
-      <Dropdown
+      <Dropdown 
         prevSubject={subject}
         options={options}
         selected={selectedOption}

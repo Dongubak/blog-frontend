@@ -1,10 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import Responsive from "../common/Responsive";
-import palette from "../../lib/styles/palette";
+import React from 'react';
+import styled from 'styled-components';
+import Responsive from '../common/Responsive';
+import palette from '../../lib/styles/palette';
 
 const CourseListBlock = styled(Responsive)`
   margin-top: 3rem;
+  
 `;
 
 const CourseItemBlock = styled.div`
@@ -31,48 +32,41 @@ const CourseItemBlock = styled.div`
   }
 `;
 
-const CourseItem = ({ course, onInsertCourse, onDeleteCourse }) => {
+const CourseItem = ({course, onInsertCourse, onDeleteCourse}) => {
+
   //  console.log(course);
 
   return (
     <CourseItemBlock>
-      <h2
-        onClick={() => {
-          onInsertCourse(course);
-        }}
-      >
-        {course.course_name}
+      <h2 onClick={() => {onInsertCourse(course)}}>
+         {course.course_name}
       </h2>
-      <p>{course.professor}</p>
-      <p>{course.class_time}</p>
+      <p>
+         {course.professor}
+      </p>
+      <p>
+         {course.class_time}
+      </p>
     </CourseItemBlock>
   );
 };
 
-const CourseList = ({
-  courses,
-  loading,
-  error,
-  onInsertCourse,
-  onDeleteCourse,
-}) => {
-  // 에러 발생 시
-  if (error) {
-    return <CourseListBlock>에러가 발생했습니다.</CourseListBlock>;
-  }
-  // console.log("CourseList");
-  // console.log(courses);
+const CourseList = ({ courses, loading, error, onInsertCourse, onDeleteCourse }) => {
+   // 에러 발생 시
+   if (error) {
+      return <CourseListBlock>에러가 발생했습니다.</CourseListBlock>;
+   }
+   // console.log("CourseList");
+   // console.log(courses);
   return (
     <CourseListBlock>
       {/*  로딩 중 아니고, 포스트 배열이 존재할 때만 보여줌 */}
       {!loading && courses && (
         <div>
-          {courses.courses.map((course) => (
-            <CourseItem
-              course={course}
-              key={course.id}
-              onInsertCourse={onInsertCourse}
-              onDeleteCourse={onDeleteCourse}
+          {courses.courses.map(course => (
+            <CourseItem course={course} key={course.id} 
+            onInsertCourse={onInsertCourse}
+            onDeleteCourse={onDeleteCourse}
             />
           ))}
         </div>

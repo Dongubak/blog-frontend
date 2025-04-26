@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Responsive from "../common/Responsive";
+import React from 'react';
+import styled from 'styled-components';
+import Responsive from '../common/Responsive';
 
 // Wrapper styled component for classic centered layout
 const Wrapper = styled(Responsive)`
@@ -9,7 +9,7 @@ const Wrapper = styled(Responsive)`
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
-  font-family: "Georgia", serif;
+  font-family: 'Georgia', serif;
   color: #333;
 `;
 
@@ -40,10 +40,10 @@ const StyledButton = styled.button`
   border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
-  font-family: "Georgia", serif;
+  font-family: 'Georgia', serif;
   text-transform: uppercase;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-
+  
   &:hover {
     background-color: #444;
   }
@@ -92,11 +92,11 @@ const Food = ({ keyword, onChange, onSearch, data, loading }) => {
     <Wrapper>
       <h2>오늘 뭐 먹지?</h2>
       <StyledForm onSubmit={handleSubmit}>
-        <StyledInput
-          type="text"
-          placeholder="Search food..."
-          value={keyword}
-          onChange={onChange}
+        <StyledInput 
+          type="text" 
+          placeholder="Search food..." 
+          value={keyword} 
+          onChange={onChange} 
           autoFocus // Auto focus added here
         />
         <StyledButton type="submit">Search</StyledButton>
@@ -119,11 +119,13 @@ const Food = ({ keyword, onChange, onSearch, data, loading }) => {
                   <StyledTd>{item.Menu}</StyledTd>
                   <StyledTd>{item.Restaurant}</StyledTd>
                   <StyledTd>{item.Review}</StyledTd>
-                  <StyledTd>{item["Similar Word"]}</StyledTd>
-                  <StyledTd>{item["Similarity Score"].toFixed(2)}</StyledTd>
+                  <StyledTd>{item['Similar Word']}</StyledTd>
+                  <StyledTd>{item['Similarity Score'].toFixed(2)}</StyledTd>
                 </tr>
               ))}
-              {loading ? <div>Loading</div> : null}
+              {
+               loading ? <div>Loading</div> : null
+              }
             </tbody>
           </StyledTable>
         </TableContainer>

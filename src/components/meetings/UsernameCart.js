@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Responsive from "../common/Responsive";
+import React from 'react';
+import styled from 'styled-components';
+import Responsive from '../common/Responsive';
 
 const Wrapper = styled(Responsive)`
   display: flex;
@@ -11,17 +11,17 @@ const Wrapper = styled(Responsive)`
   border: 1px solid black;
 `;
 // userCart
-const UsernameCart = ({ userCart }) => {
-  console.log(userCart);
-  return (
-    <Wrapper>
-      {/* {
+const UsernameCart = ({userCart}) => {
+   console.log(userCart);
+   return (
+      <Wrapper>
+         {/* {
             userCart.map((userData) => (
                <p>{userData.username}</p> 
             ))
          } */}
-    </Wrapper>
-  );
-};
+      </Wrapper>
+   )
+}
 
 export default UsernameCart;

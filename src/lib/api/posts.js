@@ -1,38 +1,40 @@
-import client from "./client";
+import client from './client';
 
+const apiURL = process.env.REACT_APP_API_URL;
 
 export const writePost = ({ title, body, user_id, subject }) =>
-  client.post(`/api/posts`, { title, body, user_id, subject });
+  client.post(`${apiURL}/api/posts`, { title, body, user_id, subject });
 
-export const readPost = (id) => client.get(`/api/posts/${id}`);
+export const readPost = id => client.get(`${apiURL}/api/posts/${id}`);
 
-export const listPosts = ({ page, username, subject }) => {
-  return client.get(`/api/posts?page=${page}&subject=${subject}`, {
+export const listPosts = ({page, username, subject}) => {
+  return client.get(`${apiURL}/api/posts?page=${page}&subject=${subject}`, {
     params: { username },
-  });
-};
+  })
+}
 
-export const updatePost = ({ id, title, body }) => {
-  const { token } = JSON.parse(localStorage.getItem("user")).user; // localStorage에서 토큰 가져오기
+export const updatePost = ({id, title, body}) => {
+  const {token} = JSON.parse(localStorage.getItem('user')).user; // localStorage에서 토큰 가져오기
   // console.log(token);
-  return client.patch(
-    `/api/posts/${id}`,
+  return client.patch(`${apiURL}/api/posts/${id}`, 
     { title, body },
     {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    },
+    }
   );
-};
+}
 
-export const removePost = ({ id, navigate }) => {
-  const { token } = JSON.parse(localStorage.getItem("user")).user; // localStorage에서 토큰 가져오기
+export const removePost = ({id, navigate}) => {
+  const {token} = JSON.parse(localStorage.getItem('user')).user; // localStorage에서 토큰 가져오기
   // console.log('remove post');
   // console.log(id);
-  return client.delete(`/api/posts/${id}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  return client.delete(`${apiURL}/api/posts/${id}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  )
 };

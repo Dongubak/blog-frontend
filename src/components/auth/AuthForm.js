@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import palette from "../../lib/styles/palette";
-import Button from "../common/Button";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import palette from '../../lib/styles/palette';
+import Button from '../common/Button';
 
 /**
  * 회원가입 또는 로그인 폼을 보여줍니다.
@@ -14,6 +14,7 @@ const AuthFormBlock = styled.div`
     color: ${palette.gray[8]};
     margin-bottom: 1rem;
   }
+  
 `;
 
 /**
@@ -55,8 +56,8 @@ const ButtonWithMarginTop = styled(Button)`
 `;
 
 const textMap = {
-  login: "로그인",
-  register: "회원가입",
+  login: '로그인',
+  register: '회원가입'
 };
 
 /**
@@ -73,7 +74,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
   const text = textMap[type];
   return (
     <AuthFormBlock>
-      <h3 className="logo">{text}</h3>
+      <h3 className='logo'>{text}</h3>
       <form onSubmit={onSubmit}>
         <StyledInput
           autoComplete="username"
@@ -90,7 +91,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
           onChange={onChange}
           value={form.password}
         />
-        {type === "register" && (
+        {type === 'register' && (
           <StyledInput
             autoComplete="new-password"
             name="passwordConfirm"
@@ -101,16 +102,12 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
           />
         )}
         {error && <ErrorMessage>{error}</ErrorMessage>}
-        <ButtonWithMarginTop
-          cyan="true"
-          fullwidth="true"
-          style={{ marginTop: "1rem" }}
-        >
+        <ButtonWithMarginTop cyan="true" fullwidth="true" style={{ marginTop: '1rem' }}>
           {text}
         </ButtonWithMarginTop>
       </form>
       <Footer>
-        {type === "login" ? (
+        {type === 'login' ? (
           <Link to="/register">회원가입</Link>
         ) : (
           <Link to="/login">로그인</Link>

@@ -1,6 +1,6 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import palette from "../../lib/styles/palette";
+import React from 'react';
+import styled, { css } from 'styled-components';
+import palette from '../../lib/styles/palette';
 
 const StyledButton = styled.button`
   border: none;
@@ -17,7 +17,7 @@ const StyledButton = styled.button`
     background: ${palette.gray[6]};
   }
 
-  ${(props) =>
+  ${props =>
     props.fullwidth &&
     css`
       padding-top: 0.75rem;
@@ -26,7 +26,7 @@ const StyledButton = styled.button`
       font-size: 1.125rem;
     `}
 
-  ${(props) =>
+  ${props =>
     props.cyan &&
     css`
       background: ${palette.cyan[5]};
@@ -39,9 +39,9 @@ const StyledButton = styled.button`
     background: ${palette.gray[3]};
     color: ${palette.gray[5]};
     cursor: not-allowed;
-  }
+    }
 
-  ${(props) =>
+    ${props =>
     props.grey &&
     css`
       background: ${palette.gray[1]};
@@ -51,13 +51,13 @@ const StyledButton = styled.button`
       }
     `}
 
-  &:disabled {
+    &:disabled {
     background: ${palette.gray[3]};
     color: ${palette.gray[5]};
     cursor: not-allowed;
-  }
+    }
 `;
 
-const Button = (props) => <StyledButton {...props} />;
+const Button = props => <StyledButton {...props} />;
 
 export default Button;

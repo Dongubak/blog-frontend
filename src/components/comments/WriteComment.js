@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import Responsive from "../common/Responsive";
-import WriteCommentActionButtons from "./WriteCommentActionButtons";
+import React from 'react';
+import styled from 'styled-components';
+import Responsive from '../common/Responsive';
+import WriteCommentActionButtons from './WriteCommentActionButtons';
 
 const WriteCommentBlock = styled(Responsive)`
   margin-top: 2rem;
@@ -41,7 +41,7 @@ const WriteComment = ({ onChange, text, onPublish, user }) => {
         disabled={user ? false : true}
       />
       <ButtonWrapper>
-        <WriteCommentActionButtons onPublish={onPublish} user={user} />
+        <WriteCommentActionButtons onPublish={onPublish} user={user}/>
       </ButtonWrapper>
     </WriteCommentBlock>
   );

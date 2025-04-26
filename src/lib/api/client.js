@@ -1,7 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
 const client = axios.create();
-// client.defaults.baseURL=REACT_APP_API_URL;
 
 /*
   글로벌 설정 예시:

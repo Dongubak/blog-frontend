@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import palette from "../../lib/styles/palette";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import palette from '../../lib/styles/palette';
+import { Link } from 'react-router-dom';
 
 /**
  * 회원가입 / 로그인 페이지의 레이아웃을 담당하는 컴포넌트입니다.
@@ -49,9 +49,7 @@ const AuthTemplate = ({ children }) => {
     <AuthTemplateBlock>
       <WhiteBox>
         <div className="logo-area">
-          <Link to="/" className="logo">
-            KTC
-          </Link>
+          <Link to="/" className='logo'>KTC</Link>
         </div>
         {children}
       </WhiteBox>

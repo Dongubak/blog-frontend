@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 import { FaGithub } from "react-icons/fa";
 
 const FooterWrapper = styled.footer`
@@ -9,6 +9,7 @@ const FooterWrapper = styled.footer`
   @media (max-width: 768px) {
     padding: 0.5rem;
   }
+  
 
   background-color: #f8f9fa; /* 밝은 회색 배경 */
   margin-top: 1rem;
@@ -41,6 +42,7 @@ const FooterContent = styled.div`
     }
   }
   align-items: center;
+  
 `;
 
 const GithubLink = styled.a`
@@ -50,6 +52,7 @@ const GithubLink = styled.a`
   /* border: 1px solid black; */
   color: inherit;
   text-decoration: none;
+  
 
   span {
     font-size: 0.9rem;
@@ -66,10 +69,7 @@ const Footer = () => {
       <FooterContent>
         <p>© 2024 KTC Community. All rights reserved.</p>
         <p>© Created for non-commercial purposes only.</p>
-        <GithubLink
-          href="https://github.com/Dongubak/koabackend"
-          target="_blank"
-        >
+        <GithubLink href="https://github.com/Dongubak/koabackend" target="_blank">
           {/* <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" /> */}
           <FaGithub className="github_logo"></FaGithub>
           <span>View on GitHub</span>

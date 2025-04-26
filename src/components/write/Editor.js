@@ -1,23 +1,24 @@
-import React, { useRef, useEffect, useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.core.css";
-import "react-quill/dist/quill.snow.css";
-import "highlight.js/styles/atom-one-dark.css"; // 원하는 하이라이트 테마를 선택하세요
+import React, { useRef, useEffect, useState } from 'react';
+import Quill from 'quill';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.core.css';
+import 'react-quill/dist/quill.snow.css';
+import 'highlight.js/styles/atom-one-dark.css'; // 원하는 하이라이트 테마를 선택하세요
 // import 'highlight.js/styles/default.css';
-import styled, { css, keyframes } from "styled-components";
-import palette from "../../lib/styles/palette";
-import Responsive from "../common/Responsive";
-import DropDownComponent from "./DropDownComponent";
-import hljs from "highlight.js";
+import styled, { css, keyframes } from 'styled-components';
+import palette from '../../lib/styles/palette';
+import Responsive from '../common/Responsive';
+import DropDownComponent from './DropDownComponent';
+import hljs from 'highlight.js';
 
 // 모든 언어를 자동으로 감지하도록 설정
 
 const toolbarOptions = [
-  [{ header: "1" }, { header: "2" }],
-  ["bold", "italic", "underline", "strike"],
-  [{ list: "ordered" }, { list: "bullet" }],
-  ["blockquote", "code-block", "link", "image"],
-  [{ indent: "-1" }, { indent: "+1" }],
+  [{ header: '1' }, { header: '2' }],
+  ['bold', 'italic', 'underline', 'strike'],
+  [{ list: 'ordered' }, { list: 'bullet' }],
+  ['blockquote', 'code-block', 'link', 'image'],
+  [{ indent: '-1' }, { indent: '+1' }],
   [{ header: [1, 2, 3, 4, 5, 6, false] }],
   [{ align: [] }],
 ];
@@ -33,20 +34,10 @@ const modules = {
 };
 
 const formats = [
-  "header",
-  "font",
-  "size",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "blockquote",
-  "list",
-  "indent",
-  "link",
-  "image",
-  "video",
-  "code-block",
+  'header', 'font', 'size',
+  'bold', 'italic', 'underline', 'strike', 'blockquote',
+  'list', 'indent',
+  'link', 'image', 'video', 'code-block'
 ];
 
 const shake = keyframes`
@@ -85,6 +76,8 @@ const TitleInput = styled.input`
     css`
       animation: ${shake} 0.3s ease;
     `}
+
+  
 `;
 
 const QuillWrapper = styled.div`
@@ -93,10 +86,11 @@ const QuillWrapper = styled.div`
     /* background: #B0B183; */
     background: #23241f;
     font-weight: 600;
+
   }
   .ql-snow .ql-editor pre.ql-syntax {
     .hljs-comment {
-      color: #5c6339;
+      color: #5C6339;
     }
   }
 
@@ -108,7 +102,7 @@ const QuillWrapper = styled.div`
     line-height: 1.5;
     ${(props) =>
       props.invalid &&
-      css`
+      css`  
         animation: ${shake} 0.3s ease;
       `}
     font-family: "Gowun Dodum", sans-serif;
@@ -126,12 +120,13 @@ const QuillWrapper = styled.div`
 `;
 
 const Editor = ({ title, body, subject, onChangeField, invalidField }) => {
+
   const handleQuillChange = (value) => {
-    onChangeField({ key: "body", value });
+    onChangeField({ key: 'body', value });
   };
 
   const onChangeTitle = (e) => {
-    onChangeField({ key: "title", value: e.target.value });
+    onChangeField({ key: 'title', value: e.target.value });
   };
 
   return (
@@ -141,9 +136,9 @@ const Editor = ({ title, body, subject, onChangeField, invalidField }) => {
         placeholder="제목을 입력하세요"
         onChange={onChangeTitle}
         value={title}
-        invalid={invalidField.includes("title")}
+        invalid={invalidField.includes('title')}
       />
-      <QuillWrapper invalid={invalidField.includes("body")}>
+      <QuillWrapper invalid={invalidField.includes('body')}>
         <ReactQuill
           value={body}
           onChange={handleQuillChange}

@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Responsive from "../common/Responsive";
+import React from 'react';
+import styled from 'styled-components';
+import Responsive from '../common/Responsive';
 
 // Wrapper 스타일
 const Wrapper = styled(Responsive)`
@@ -28,10 +28,7 @@ const UserListItemWrapper = styled.div`
   border-radius: 4px; /* 둥근 모서리 */
   background-color: #ffffff; /* 흰색 배경 */
   cursor: pointer;
-  transition:
-    background-color 0.3s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
     background-color: #e9ecef; /* 마우스 오버 시 배경 */
@@ -65,9 +62,7 @@ const ArrangeMeetingUserList = ({ userDatas, onClick }) => {
   if (userDatas.length === 0) {
     return (
       <Wrapper>
-        <p
-          style={{ textAlign: "center", color: "#868e96", fontSize: "0.9rem" }}
-        >
+        <p style={{ textAlign: 'center', color: '#868e96', fontSize: '0.9rem' }}>
           검색된 사용자가 없습니다.
         </p>
       </Wrapper>
