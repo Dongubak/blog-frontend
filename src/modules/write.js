@@ -3,8 +3,8 @@ import createRequestSaga, {
   createRequestActionTypes,
 } from "../lib/createRequestSaga";
 import * as postsAPI from "../lib/api/posts";
-import { put, takeLatest, call } from "redux-saga/effects";
-import { listPosts, listPostsWithoutRemovedOne } from "./posts";
+import { put, takeLatest } from "redux-saga/effects";
+import { listPostsWithoutRemovedOne } from "./posts";
 
 const INITIALIZE = "write/INITIALIZE"; // 모든 내용 초기화
 const CHANGE_FIELD = "write/CHANGE_FIELD"; // 특정 key 값 바꾸기

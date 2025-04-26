@@ -11,7 +11,6 @@ import GoogleSearchForm from "./test/GoogleSearchForm";
 import Footer from "./components/common/footer";
 import styled from "styled-components";
 import MeetingPage from "./pages/MeetingPage";
-import ArrangeMeetingContainer from "./containers/meeting/ArrangeMeetingContainer.js";
 import ArrangeMeetingPage from "./pages/ArrangeMeetingPage.js";
 import SearchFoodPage from "./pages/SearchFoodPage.js";
 import NewsPage from "./pages/NewsPage.js";

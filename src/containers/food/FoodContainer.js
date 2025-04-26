@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Food from "../../components/food/Food";
 import { useDispatch, useSelector } from "react-redux";
 import { searchFood } from "../../modules/food";

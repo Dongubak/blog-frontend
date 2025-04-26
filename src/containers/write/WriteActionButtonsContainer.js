@@ -3,7 +3,6 @@ import WriteActionButtons from "../../components/write/WriteActionButtons";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
-  initInvalidField,
   setInvalidField,
   updatePost,
   writePost,

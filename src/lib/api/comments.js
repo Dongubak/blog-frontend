@@ -1,4 +1,3 @@
-import { GiConsoleController } from "react-icons/gi";
 import client from "./client";
 
 const apiURL = process.env.REACT_APP_API_URL;

@@ -3,7 +3,7 @@ import createRequestSaga, {
   createRequestActionTypes,
 } from "../lib/createRequestSaga";
 import * as foodAPI from "../lib/api/food";
-import { takeLatest, call, put } from "redux-saga/effects";
+import { takeLatest } from "redux-saga/effects";
 
 const [SEARCH_FOOD, SEARCH_FOOD_SUCCESS, SEARCH_FOOD_FAILURE] =
   createRequestActionTypes("food/SEARCH_FOOD");

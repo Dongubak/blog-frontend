@@ -6,7 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { applyMiddleware, createStore } from "redux";
 import rootReducer, { rootSaga } from "./modules";
-import { composeWithDevTools } from "redux-devtools-extension";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
 import { check, tempSetUser } from "./modules/user";

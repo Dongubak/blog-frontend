@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import NewsList from "../../components/news/NewsList";
 import { useDispatch, useSelector } from "react-redux";
 import { getNews } from "../../modules/news";
-import { useSearchParams } from "react-router-dom";
 
 const NewsListContainer = () => {
   const dispatch = useDispatch();

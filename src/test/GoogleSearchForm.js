@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { MdSaveAlt } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
-import Responsive from "../components/common/Responsive";
 
 const SearchForm = styled.form`
   display: flex;

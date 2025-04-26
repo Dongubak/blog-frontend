@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { listCourses, unloadCourses } from "../../modules/courses";
+import { listCourses } from "../../modules/courses";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 import CourseForm from "../../components/courses/CourseForm";

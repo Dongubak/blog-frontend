@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Pagination from "../../components/comments/Pagination"; // comments 관련 Pagination 컴포넌트 경로
 import { useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
