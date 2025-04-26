@@ -3,16 +3,14 @@ import ArrangeMeetingUserList from "../../components/meetings/ArrangeMeetingUser
 import { insertUserToCart } from "../../modules/meetings";
 
 const ArrangeMeetingUserListConatiner = () => {
-   const { userDatas } = useSelector((state) => state.meetings);
-   const dispatch = useDispatch();
+  const { userDatas } = useSelector((state) => state.meetings);
+  const dispatch = useDispatch();
 
-   const onClick = (userData) => {
-      dispatch(insertUserToCart(userData));
-   }
+  const onClick = (userData) => {
+    dispatch(insertUserToCart(userData));
+  };
 
-   return (
-      <ArrangeMeetingUserList userDatas={userDatas} onClick={onClick} />
-   )
-}
+  return <ArrangeMeetingUserList userDatas={userDatas} onClick={onClick} />;
+};
 
 export default ArrangeMeetingUserListConatiner;

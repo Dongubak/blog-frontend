@@ -1,21 +1,20 @@
-import { createAction, handleActions } from 'redux-actions';
-import { takeLatest, call, put } from 'redux-saga/effects';
-import * as authAPI from '../lib/api/auth';
+import { createAction, handleActions } from "redux-actions";
+import { takeLatest, call, put } from "redux-saga/effects";
+import * as authAPI from "../lib/api/auth";
 import createRequestSaga, {
   createRequestActionTypes,
-} from '../lib/createRequestSaga';
-import { initializeForm } from './auth';
-import { unloadGroupTimeTable, unloadMeetings } from './meetings';
-import { unloadCourses } from './courses';
+} from "../lib/createRequestSaga";
+import { initializeForm } from "./auth";
+import { unloadGroupTimeTable, unloadMeetings } from "./meetings";
+import { unloadCourses } from "./courses";
 
-const TEMP_SET_USER = 'user/TEMP_SET_USER'; // 새로고침 이후 임시 로그인 처리
+const TEMP_SET_USER = "user/TEMP_SET_USER"; // 새로고침 이후 임시 로그인 처리
 // 회원 정보 확인
-const [CHECK, CHECK_SUCCESS, CHECK_FAILURE] = createRequestActionTypes(
-  'user/CHECK',
-);
-const LOGOUT = 'user/LOGOUT';
+const [CHECK, CHECK_SUCCESS, CHECK_FAILURE] =
+  createRequestActionTypes("user/CHECK");
+const LOGOUT = "user/LOGOUT";
 
-export const tempSetUser = createAction(TEMP_SET_USER, user => user);
+export const tempSetUser = createAction(TEMP_SET_USER, (user) => user);
 export const check = createAction(CHECK);
 export const logout = createAction(LOGOUT);
 
@@ -23,18 +22,17 @@ const checkSaga = createRequestSaga(CHECK, authAPI.check);
 
 function* checkFailureSaga() {
   try {
-    yield localStorage.removeItem('user'); // localStorage 에서 user 제거하고
+    yield localStorage.removeItem("user"); // localStorage 에서 user 제거하고
   } catch (e) {
-    console.log('localStorage is not working');
+    console.log("localStorage is not working");
   }
 }
-
 
 function* logoutSaga() {
   try {
     yield call(authAPI.logout); // logout API 호출
-    localStorage.removeItem('user'); // localStorage 에서 user 제거
-    yield put(initializeForm('login'));
+    localStorage.removeItem("user"); // localStorage 에서 user 제거
+    yield put(initializeForm("login"));
     yield put(unloadGroupTimeTable());
     yield put(unloadCourses());
     yield put(unloadMeetings());
@@ -66,11 +64,11 @@ export default handleActions(
       checkError: null,
     }),
     [CHECK_FAILURE]: (state, { payload: error }) => ({
-      ...state, 
+      ...state,
       user: null,
       checkError: error,
     }),
-    [LOGOUT]: state => ({
+    [LOGOUT]: (state) => ({
       ...state,
       user: null,
     }),

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import Responsive from '../common/Responsive';
-import Button from '../common/Button';
-import GoogleSearchForm from '../../test/GoogleSearchForm';
+import React, { useState } from "react";
+import styled from "styled-components";
+import Responsive from "../common/Responsive";
+import Button from "../common/Button";
+import GoogleSearchForm from "../../test/GoogleSearchForm";
 
 const Wrapper = styled(Responsive)`
   display: flex;
@@ -72,7 +72,7 @@ const ToggleSwitch = styled.div`
   position: relative;
   width: 50px;
   height: 24px;
-  background-color: ${props => (props.isActive ? '#343a40' : '#ccc')};
+  background-color: ${(props) => (props.isActive ? "#343a40" : "#ccc")};
   border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -85,20 +85,24 @@ const ToggleThumb = styled.div`
   background-color: white;
   border-radius: 50%;
   top: 1px;
-  left: ${props => (props.isActive ? '26px' : '2px')};
+  left: ${(props) => (props.isActive ? "26px" : "2px")};
   transition: left 0.3s ease;
 `;
 
-const CourseForm = ({ keyword, onChange, onSearch, 
-  onSave, setSearchByCourse, searchByCourse,
-  handleToggle, handleKeyPress
+const CourseForm = ({
+  keyword,
+  onChange,
+  onSearch,
+  onSave,
+  setSearchByCourse,
+  searchByCourse,
+  handleToggle,
+  handleKeyPress,
 }) => {
-  
-
   return (
     <Wrapper>
       <ToggleWrapper>
-        <ToggleLabel>{searchByCourse ? '강의명' : '교수명'}</ToggleLabel>
+        <ToggleLabel>{searchByCourse ? "강의명" : "교수명"}</ToggleLabel>
         <ToggleSwitch isActive={searchByCourse} onClick={handleToggle}>
           <ToggleThumb isActive={searchByCourse} />
         </ToggleSwitch>
@@ -113,7 +117,9 @@ const CourseForm = ({ keyword, onChange, onSearch,
       <GoogleSearchForm
         value={keyword}
         onChange={onChange}
-        placeholder={searchByCourse ? "강의명을 입력하시오..." : "교수명을 입력하시오..."}
+        placeholder={
+          searchByCourse ? "강의명을 입력하시오..." : "교수명을 입력하시오..."
+        }
         onKeyPress={handleKeyPress}
         onSearch={onSearch}
         onSave={onSave}

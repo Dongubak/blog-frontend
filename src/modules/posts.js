@@ -1,17 +1,14 @@
-import { createAction, handleActions } from 'redux-actions';
+import { createAction, handleActions } from "redux-actions";
 import createRequestSaga, {
   createRequestActionTypes,
-} from '../lib/createRequestSaga';
-import * as postsAPI from '../lib/api/posts';
-import { takeLatest } from 'redux-saga/effects';
+} from "../lib/createRequestSaga";
+import * as postsAPI from "../lib/api/posts";
+import { takeLatest } from "redux-saga/effects";
 
-const [
-  LIST_POSTS,
-  LIST_POSTS_SUCCESS,
-  LIST_POSTS_FAILURE,
-] = createRequestActionTypes('posts/LIST_POSTS');
+const [LIST_POSTS, LIST_POSTS_SUCCESS, LIST_POSTS_FAILURE] =
+  createRequestActionTypes("posts/LIST_POSTS");
 
-const LIST_POSTS_WITHOUT_REMOVED_ONE = 'posts/LIST_POSTS_WITHOUT_REMOVED_ONE';
+const LIST_POSTS_WITHOUT_REMOVED_ONE = "posts/LIST_POSTS_WITHOUT_REMOVED_ONE";
 
 export const listPosts = createAction(
   LIST_POSTS,
@@ -20,7 +17,7 @@ export const listPosts = createAction(
 
 export const listPostsWithoutRemovedOne = createAction(
   LIST_POSTS_WITHOUT_REMOVED_ONE,
-  (id) => id
+  (id) => id,
 );
 
 const listPostsSaga = createRequestSaga(LIST_POSTS, postsAPI.listPosts);
@@ -44,16 +41,16 @@ const posts = handleActions(
       ...state,
       error,
     }),
-    [LIST_POSTS_WITHOUT_REMOVED_ONE]: (state, {payload: id}) => {
-      const updatedPosts = state.posts.posts.filter(post => post.id !== id);
+    [LIST_POSTS_WITHOUT_REMOVED_ONE]: (state, { payload: id }) => {
+      const updatedPosts = state.posts.posts.filter((post) => post.id !== id);
       return {
         ...state,
         posts: {
           ...state.posts,
-          posts: updatedPosts
-        }
-      }
-    }
+          posts: updatedPosts,
+        },
+      };
+    },
   },
   initialState,
 );

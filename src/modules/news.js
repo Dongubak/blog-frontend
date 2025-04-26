@@ -1,15 +1,12 @@
-import { createAction, handleActions } from 'redux-actions';
+import { createAction, handleActions } from "redux-actions";
 import createRequestSaga, {
   createRequestActionTypes,
-} from '../lib/createRequestSaga';
-import * as newsAPI from '../lib/api/news';
-import { takeLatest, call, put } from 'redux-saga/effects';
+} from "../lib/createRequestSaga";
+import * as newsAPI from "../lib/api/news";
+import { takeLatest, call, put } from "redux-saga/effects";
 
-const [
-  GET_NEWS,
-  GET_NEWS_SUCCESS,
-  GET_NEWS_FAILURE,
-] = createRequestActionTypes('news/GET_NEWS');
+const [GET_NEWS, GET_NEWS_SUCCESS, GET_NEWS_FAILURE] =
+  createRequestActionTypes("news/GET_NEWS");
 
 export const getNews = createAction(GET_NEWS);
 
@@ -22,7 +19,7 @@ export function* NewsSaga() {
 const initialState = {
   data: [],
   error: false,
-  errorMSG: '',
+  errorMSG: "",
 };
 
 const news = handleActions(

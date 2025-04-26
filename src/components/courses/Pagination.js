@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react';
-import styled from 'styled-components';
-import qs from 'qs';
-import Button from '../common/Button';
-import { useNavigate } from 'react-router';
+import React, { useCallback } from "react";
+import styled from "styled-components";
+import qs from "qs";
+import Button from "../common/Button";
+import { useNavigate } from "react-router";
 
 const PaginationBlock = styled.div`
   width: 320px;
@@ -19,8 +19,7 @@ const ButtonsWrapper = styled.div`
   height: 2rem;
   justify-content: space-between;
   align-items: center;
-`
-
+`;
 
 const PageNumber = styled.div``;
 
@@ -33,20 +32,17 @@ const Pagination = ({ page, lastPage }) => {
   const navigator = useNavigate();
 
   const onGoNextPage = useCallback(() => {
-    navigator(buildLink({page: page + 1}));
+    navigator(buildLink({ page: page + 1 }));
   }, [page, navigator]);
 
   const onGoPreviousPage = useCallback(() => {
-    navigator(buildLink({page: page - 1}));
+    navigator(buildLink({ page: page - 1 }));
   }, [page, navigator]);
 
   return (
     <PaginationBlock>
       <ButtonsWrapper>
-        <Button
-          disabled={page === 1}
-          onClick={onGoPreviousPage}
-        >
+        <Button disabled={page === 1} onClick={onGoPreviousPage}>
           이전
         </Button>
         <PageNumber>{page}</PageNumber>

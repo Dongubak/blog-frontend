@@ -13,6 +13,7 @@
     "highlight.js": "^11.10.0",
     "history": "^5.3.0",
     "immer": "^10.1.1",
+    "prettier": "^3.5.3",
     "prismjs": "^1.29.0",
     "prop-types": "^15.8.1",
     "quill": "^2.0.2",
@@ -41,7 +42,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format:fix": "prettier --write ./src"
   },
   "eslintConfig": {
     "extends": [

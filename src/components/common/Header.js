@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import Responsive from './Responsive';
-import Button from './Button';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import Responsive from "./Responsive";
+import Button from "./Button";
 import { GiHamburgerMenu } from "react-icons/gi";
-import Sidebar from './Sidebar';
+import Sidebar from "./Sidebar";
 // import { MdOutlineTipsAndUpdates } from "react-icons/md";
 
 const HeaderBlock = styled.div`
   @media (max-width: 768px) {
-      font-size: 0.8rem;
+    font-size: 0.8rem;
   }
   position: fixed;
   width: 100%;
@@ -24,7 +24,7 @@ const LogoWrapper = styled.div`
 
   ._link {
     @media (max-width: 1024px) {
-      font-size: 1rem; 
+      font-size: 1rem;
     }
     @media (max-width: 768px) {
       font-size: 0.8rem;
@@ -37,19 +37,18 @@ const LogoWrapper = styled.div`
   .search_icon {
     margin-right: 0.5rem;
     @media (max-width: 1024px) {
-      font-size: 1rem; 
+      font-size: 1rem;
     }
     @media (max-width: 768px) {
       font-size: 1rem;
     }
-    
+
     cursor: pointer;
-    margin: 10px; 
+    margin: 10px;
   }
 `;
 
 const Wrapper = styled(Responsive)`
-  
   height: 4rem;
   display: flex;
   align-items: center;
@@ -74,7 +73,7 @@ const Wrapper = styled(Responsive)`
 
   .button_logout {
     @media (max-width: 1024px) {
-      font-size: 1rem; 
+      font-size: 1rem;
     }
     @media (max-width: 768px) {
       font-size: 0.8rem;
@@ -84,8 +83,8 @@ const Wrapper = styled(Responsive)`
     }
   }
   @media (max-width: 578px) {
-      padding: 0.3rem;
-      font-size: 0.8rem;
+    padding: 0.3rem;
+    font-size: 0.8rem;
   }
 `;
 
@@ -107,7 +106,8 @@ const SidebarWrapper = styled.div`
   position: fixed;
   top: 0rem;
   left: 0;
-  transform: ${props => props.$isOpen ? 'translateX(-10%)' : 'translateX(-120%)'};
+  transform: ${(props) =>
+    props.$isOpen ? "translateX(-10%)" : "translateX(-120%)"};
   transition: transform 0.3s ease-in-out;
   width: 200px;
   height: 100%;
@@ -123,26 +123,37 @@ const Overlay = styled.div`
   bottom: 0;
   background: rgba(0, 0, 0, 0.3);
   z-index: 999;
-  display: ${props => (props.$isOpen ? 'block' : 'none')};
+  display: ${(props) => (props.$isOpen ? "block" : "none")};
 `;
 
-const Header = ({ user, onLogout, goLogin, onGoHome, onGoCourse, tip, location, navigators, onGoMeeting,
-  onGoSearchFood, onGoNews, onGoMeal
- }) => {
+const Header = ({
+  user,
+  onLogout,
+  goLogin,
+  onGoHome,
+  onGoCourse,
+  tip,
+  location,
+  navigators,
+  onGoMeeting,
+  onGoSearchFood,
+  onGoNews,
+  onGoMeal,
+}) => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
-    setTimeout(() => setSidebarOpen(state => state), 0);
-  }
+    setTimeout(() => setSidebarOpen((state) => state), 0);
+  };
 
   // if(location.pathname === '/') {
   //   console.log(location.pathname);
   // }
-  
+
   const closeSidebar = () => {
     setSidebarOpen(false);
-    setTimeout(() => setSidebarOpen(state => state), 0);
+    setTimeout(() => setSidebarOpen((state) => state), 0);
   };
 
   return (
@@ -154,31 +165,65 @@ const Header = ({ user, onLogout, goLogin, onGoHome, onGoCourse, tip, location, 
             <Link to="/" className="logo">
               KTC
             </Link>
-            {
-              location.pathname === '/' ? <>
-                <Button className="_link" grey={true} onClick={navigators.viewAll}>전체</Button>
-                <Button className='_link' grey={true} onClick={navigators.viewCommunity}>커뮤</Button>
-                <Button className='_link' grey={true} onClick={navigators.viewKnowledge}>지식</Button>
-                <Button className='_link' grey={true} onClick={navigators.viewQna}>질문</Button>
-                <Button className='_link' grey={true} onClick={navigators.viewAnnouncement}>공지</Button>
+            {location.pathname === "/" ? (
+              <>
+                <Button
+                  className="_link"
+                  grey={true}
+                  onClick={navigators.viewAll}
+                >
+                  전체
+                </Button>
+                <Button
+                  className="_link"
+                  grey={true}
+                  onClick={navigators.viewCommunity}
+                >
+                  커뮤
+                </Button>
+                <Button
+                  className="_link"
+                  grey={true}
+                  onClick={navigators.viewKnowledge}
+                >
+                  지식
+                </Button>
+                <Button
+                  className="_link"
+                  grey={true}
+                  onClick={navigators.viewQna}
+                >
+                  질문
+                </Button>
+                <Button
+                  className="_link"
+                  grey={true}
+                  onClick={navigators.viewAnnouncement}
+                >
+                  공지
+                </Button>
 
                 {/* <Link className="_link">전체</Link>
                 <Link className="_link">커뮤니티</Link>
                 <Link className="_link">지식</Link>
                 <Link className="_link">질문</Link>
                 <Link className="_link">공지</Link> */}
-              </> : null
-            }
+              </>
+            ) : null}
           </LogoWrapper>
-          
+
           {user ? (
             <div className="right">
               <UserInfo>{user.user.username}</UserInfo>
-              <Button className="button_logout" onClick={onLogout}>로그아웃</Button>
+              <Button className="button_logout" onClick={onLogout}>
+                로그아웃
+              </Button>
             </div>
           ) : (
             <div className="right">
-              <Button to="/login" onClick={goLogin}>로그인</Button>
+              <Button to="/login" onClick={goLogin}>
+                로그인
+              </Button>
             </div>
           )}
         </Wrapper>
@@ -186,8 +231,13 @@ const Header = ({ user, onLogout, goLogin, onGoHome, onGoCourse, tip, location, 
       <Spacer />
       <Overlay $isOpen={isSidebarOpen} onClick={closeSidebar} />
       <SidebarWrapper $isOpen={isSidebarOpen}>
-        <Sidebar onGoHome={onGoHome} onGoCourse={onGoCourse} onGoMeeting={onGoMeeting}
-          onGoSearchFood={onGoSearchFood} onGoNews={onGoNews} onGoMeal={onGoMeal}
+        <Sidebar
+          onGoHome={onGoHome}
+          onGoCourse={onGoCourse}
+          onGoMeeting={onGoMeeting}
+          onGoSearchFood={onGoSearchFood}
+          onGoNews={onGoNews}
+          onGoMeal={onGoMeal}
         />
       </SidebarWrapper>
     </>
@@ -231,7 +281,7 @@ const TooltipSpan = styled.span`
   }
 
   &:after {
-    content: '';
+    content: "";
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-bottom: 5px solid #025272;

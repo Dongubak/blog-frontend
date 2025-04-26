@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import Responsive from '../common/Responsive';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import Responsive from "../common/Responsive";
+import axios from "axios";
 
 const NewsListWrapper = styled(Responsive)`
   padding: 1rem;
@@ -23,7 +23,7 @@ const NewsItemWrapper = styled.div`
 
 // 헬퍼 함수: 문자열 길이 제한
 const truncateText = (text, maxLength) => {
-  if (!text) return '';
+  if (!text) return "";
   return text.length > maxLength ? `${text.substring(0, maxLength)}...` : text;
 };
 
@@ -40,7 +40,7 @@ const NewsItem = ({ title, description, link }) => {
   );
 };
 
-const NewsList = ({data, loading}) => {
+const NewsList = ({ data, loading }) => {
   if (loading) {
     return <NewsListWrapper>Loading...</NewsListWrapper>;
   }

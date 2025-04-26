@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import Responsive from '../common/Responsive';
-import GroupList from '../../components/meetings/GroupList';
+import React from "react";
+import styled from "styled-components";
+import Responsive from "../common/Responsive";
+import GroupList from "../../components/meetings/GroupList";
 
 // Wrapper 스타일
 // Wrapper 스타일
@@ -48,7 +48,9 @@ const Button = styled.button`
   border-radius: 4px;
   text-align: center;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
 
   &:hover {
     background: #e9ecef; /* 마우스 오버 시 더 짙은 회색 배경 */

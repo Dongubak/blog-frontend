@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import Responsive from '../common/Responsive';
-import Button from '../common/Button';
-import palette from '../../lib/styles/palette';
-import SubInfo from '../common/SubInfo';
-import CommentActionButtons from './CommentActionButtons';
+import React, { useState } from "react";
+import styled from "styled-components";
+import Responsive from "../common/Responsive";
+import Button from "../common/Button";
+import palette from "../../lib/styles/palette";
+import SubInfo from "../common/SubInfo";
+import CommentActionButtons from "./CommentActionButtons";
 
 const CommentsListBlock = styled(Responsive)`
   /* margin-top: 1rem; */
@@ -73,53 +73,48 @@ const CommentItem = ({ comment, onRemove, onEdit, user }) => {
 
   const onEditComment = () => {
     setIsEditing(true);
-  }
+  };
 
   const onSaveComment = () => {
     onEdit(id, editedText);
     setIsEditing(false);
-  }
+  };
 
   const onCancelEdit = () => {
     setIsEditing(false);
     setEditedText(text);
-  }
+  };
 
   const onRemoveComment = () => {
     onRemove(id);
-  }
+  };
 
   return (
     <CommentItemBlock>
-      <SubInfo
-        username={username}
-        publishedDate={new Date(created_date)}
-      />
-      {
-        isEditing ? (
-          <>
-            <textarea 
-              value={editedText} 
-              onChange={(e) => setEditedText(e.target.value)}
-              className="comment_text"
-            />
-            <div className="button-group">
-              <Button onClick={onSaveComment} cyan>저장</Button>
-              <Button onClick={onCancelEdit}>닫기</Button>
-            </div>
-          </>
-        ) : (
-          <TextWrapper>{text}</TextWrapper>
-        )
-      }
-      {
-        (user && user.user.id === user_id) && !isEditing && (
-          <CommentActionButtons
-            onEditComment={onEditComment} 
-            onRemoveComment={onRemoveComment}
+      <SubInfo username={username} publishedDate={new Date(created_date)} />
+      {isEditing ? (
+        <>
+          <textarea
+            value={editedText}
+            onChange={(e) => setEditedText(e.target.value)}
+            className="comment_text"
           />
-        )
-      }
+          <div className="button-group">
+            <Button onClick={onSaveComment} cyan>
+              저장
+            </Button>
+            <Button onClick={onCancelEdit}>닫기</Button>
+          </div>
+        </>
+      ) : (
+        <TextWrapper>{text}</TextWrapper>
+      )}
+      {user && user.user.id === user_id && !isEditing && (
+        <CommentActionButtons
+          onEditComment={onEditComment}
+          onRemoveComment={onRemoveComment}
+        />
+      )}
     </CommentItemBlock>
   );
 };
@@ -133,12 +128,12 @@ const CommentsList = ({ comments, loading, error, onRemove, onEdit, user }) => {
     <CommentsListBlock>
       {!loading && comments && (
         <div>
-          {comments.map(comment => (
-            <CommentItem 
-              comment={comment} 
-              key={comment.id} 
-              onRemove={onRemove} 
-              onEdit={onEdit} 
+          {comments.map((comment) => (
+            <CommentItem
+              comment={comment}
+              key={comment.id}
+              onRemove={onRemove}
+              onEdit={onEdit}
               user={user}
             />
           ))}

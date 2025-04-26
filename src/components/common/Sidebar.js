@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import Responsive from './Responsive';
+import React from "react";
+import styled from "styled-components";
+import Responsive from "./Responsive";
 
 const SidebarWrapper = styled.div`
   width: 200px;
@@ -27,7 +27,9 @@ const LinkItem = styled.div`
   background: #ffffff; /* 흰색 배경 */
   text-align: center;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
 
   &:hover {
     background: #e9ecef; /* 마우스 오버 시 배경 색상 */
@@ -35,11 +37,16 @@ const LinkItem = styled.div`
   }
 `;
 
-const Sidebar = ({onGoHome, onGoCourse, onGoMeeting, onGoSearchFood,
-  onGoNews, onGoMeal
+const Sidebar = ({
+  onGoHome,
+  onGoCourse,
+  onGoMeeting,
+  onGoSearchFood,
+  onGoNews,
+  onGoMeal,
 }) => {
   return (
-    <Responsive style={{ display: 'flex' }}>
+    <Responsive style={{ display: "flex" }}>
       <SidebarWrapper>
         <LinkItem onClick={onGoHome}>홈</LinkItem>
         <LinkItem onClick={onGoCourse}>시간표</LinkItem>
